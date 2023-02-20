@@ -26,6 +26,14 @@ class ViewController: UIViewController {
         signLabel.text = ""
     }
     
+    func getResult(result: Double) {
+        if result.truncatingRemainder(dividingBy: 1) == 0 {
+            resultLabel.text = "= \(Int(result))"
+        } else {
+            resultLabel.text = "= \(result)"
+        }
+    }
+    
     //input, output 자릿수 제한 걸기 미해결
     @IBAction func plusButtonClicked(_ sender: Any) {
         print(#function)
@@ -34,15 +42,10 @@ class ViewController: UIViewController {
         if let firstNumber = Double(firstTextField.text!), let secondNumber = Double(secondTextField.text!) {
             let result = firstNumber + secondNumber
             
-            if result.truncatingRemainder(dividingBy: 1) == 0 {
-                resultLabel.text = "= \(Int(result))"
-            } else {
-                resultLabel.text = "= \(result)"
-            }
+            getResult(result: result)
         } else {
             resultLabel.text = "입력값이 잘못되었습니다."
         }
-
     }
     
     @IBAction func minusButtonClicked(_ sender: Any) {
@@ -52,11 +55,7 @@ class ViewController: UIViewController {
         if let firstNumber = Double(firstTextField.text!), let secondNumber = Double(secondTextField.text!) {
             let result = firstNumber - secondNumber
             
-            if result.truncatingRemainder(dividingBy: 1) == 0 {
-                resultLabel.text = "= \(Int(result))"
-            } else {
-                resultLabel.text = "= \(result)"
-            }
+            getResult(result: result)
         } else {
             resultLabel.text = "입력값이 잘못되었습니다."
         }
@@ -69,11 +68,7 @@ class ViewController: UIViewController {
         if let firstNumber = Double(firstTextField.text!), let secondNumber = Double(secondTextField.text!) {
             let result = firstNumber * secondNumber
             
-            if result.truncatingRemainder(dividingBy: 1) == 0 {
-                resultLabel.text = "= \(Int(result))"
-            } else {
-                resultLabel.text = "= \(result)"
-            }
+            getResult(result: result)
         } else {
             resultLabel.text = "입력값이 잘못되었습니다."
         }
@@ -87,11 +82,7 @@ class ViewController: UIViewController {
             if secondNumber != 0 {
                 let result = firstNumber / secondNumber
                 
-                if result.truncatingRemainder(dividingBy: 1) == 0 {
-                    resultLabel.text = "= \(Int(result))"
-                } else {
-                    resultLabel.text = "= \(result)"
-                }
+                getResult(result: result)
             } else {
                 resultLabel.text = "0은 안됩니다"
             }
@@ -107,11 +98,7 @@ class ViewController: UIViewController {
         if let firstNumber = Double(firstTextField.text!), let secondNumber = Double(secondTextField.text!) {
             let result = pow(firstNumber, secondNumber)
             
-            if result.truncatingRemainder(dividingBy: 1) == 0 {
-                resultLabel.text = "= \(Int(result))"
-            } else {
-                resultLabel.text = "= \(result)"
-            }
+            getResult(result: result)
         } else {
             resultLabel.text = "입력값이 잘못되었습니다."
         }
